@@ -15,6 +15,7 @@ export type ReviewMetaBase = {
 
 export type ReviewMeta = ReviewMetaBase & {
   description?: string;
+  og_image?: string;
 } & Record<string, unknown>;
 
 export type Review = ReviewMeta & {
@@ -41,6 +42,7 @@ export function getAllReviews(): ReviewMeta[] {
       title: data.title || "",
       author: data.author || "",
       tags: data.tags || [],
+      og_image: data.og_image || "",
       ...data,
     };
   });
