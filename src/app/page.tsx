@@ -9,41 +9,40 @@ export default async function HomePage() {
   return (
     <div>
       <Menu />
-      <main className="min-h-screen flex flex-col items-center bg-white dark:bg-gray-900 px-4 py-8">
-        <h1 className="text-4xl font-bold mb-8 text-center text-gray-900 dark:text-white">
-          Book Reviews
-        </h1>
-        <div className="w-full max-w-3xl grid gap-8 grid-cols-1">
-          {reviews.map((review) => (
-            <Link
-              key={review.slug}
-              href={`/reviews/${review.slug}`}
-              className="block bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition"
-            >
-              <div className="flex items-start">
+      <main className="min-h-screen bg-white dark:bg-gray-900 py-8">
+        <div className="w-full max-w-screen-lg mx-auto px-4">
+          <div className="grid gap-8 grid-cols-1">
+            {reviews.map((review) => (
+              <div key={review.slug} className="lg:overflow-hidden">
                 {review.og_image && (
-                  <div className="w-1/3 mr-4">
+                  <div className="lg:float-left lg:mr-4 mb-4">
                     <Image
                       src={review.og_image}
                       alt={review.title}
                       width={200}
                       height={200}
-                      className="object-cover rounded"
+                      className="object-cover w-full lg:w-auto"
                     />
                   </div>
                 )}
-                <div className="w-2/3">
+                <div>
                   <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
                     {review.title}
                   </h2>
                   <p className="text-gray-700 dark:text-gray-300 mb-1">
                     <span className="font-medium">Author:</span> {review.author}
                   </p>
-                  {review.description && (
-                    <p className="text-gray-600 dark:text-gray-400 mb-2">
-                      {review.description}
+                  {review.firstParagraph && (
+                    <p className="text-gray-600 dark:text-gray-400 mb-2 first-letter-styled">
+                      {review.firstParagraph}
                     </p>
                   )}
+                  <Link
+                    href={`/reviews/${review.slug}`}
+                    className="text-blue-500 hover:underline"
+                  >
+                    Read more
+                  </Link>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {(review.tags || []).map((tag: string) => (
                       <span
@@ -56,8 +55,8 @@ export default async function HomePage() {
                   </div>
                 </div>
               </div>
-            </Link>
-          ))}
+            ))}
+          </div>
         </div>
       </main>
     </div>

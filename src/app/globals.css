@@ -24,3 +24,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.first-letter-styled::first-letter {
+  font-size: 3em;
+  font-weight: bold;
+  margin-right: 0.1em;
+  float: left;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .first-letter-styled::first-letter {
+    font-size: 2em;
+  }
+}

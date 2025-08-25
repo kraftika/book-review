@@ -34,10 +34,10 @@ export default async function ReviewPage({ params }: Props) {
   if (!review) return notFound();
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Menu />
-      <main className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-gray-900 px-4 py-8">
-        <article className="w-full max-w-2xl bg-gray-100 dark:bg-gray-800 rounded-lg shadow-md p-8">
+      <main className="flex-grow flex flex-col items-center bg-white dark:bg-gray-900 px-4 py-8">
+        <article className="w-full max-w-screen-lg px-4">
           <h1 className="text-3xl font-bold mb-2 text-gray-900 dark:text-white">
             {review.title}
           </h1>

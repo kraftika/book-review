@@ -14,6 +14,7 @@ export type ReviewMetaBase = {
 };
 
 export type ReviewMeta = ReviewMetaBase & {
+  firstParagraph?: string;
   description?: string;
   og_image?: string;
 } & Record<string, unknown>;
