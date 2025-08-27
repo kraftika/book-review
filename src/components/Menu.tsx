@@ -7,12 +7,12 @@ export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white py-6 px-4">
+    <nav className="bg-white py-6 px-4 relative">
       <div className="mx-auto max-w-screen-lg flex items-center justify-between flex-wrap px-4">
         <div className="flex items-center flex-shrink-0 text-black mr-6">
-          <span className="font-semibold text-xl tracking-tight">
+          <Link href="/" className="font-semibold text-xl tracking-tight">
             Book Review
-          </span>
+          </Link>
         </div>
         <div className="block lg:hidden">
           <button
@@ -30,11 +30,11 @@ export default function Menu() {
           </button>
         </div>
         <div
-          className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
-            isOpen ? "" : "hidden"
-          }`}
+          className={`w-full lg:flex lg:items-center lg:w-auto lg:block ${
+            isOpen ? "block" : "hidden"
+          } absolute lg:static top-full left-0 bg-white lg:bg-transparent z-10 w-full shadow-md lg:shadow-none`}
         >
-          <div className="text-sm lg:flex-grow text-right">
+          <div className="text-sm lg:flex-grow text-center lg:text-right p-4 lg:p-0">
             <Link
               href="/"
               className="block mt-4 lg:inline-block lg:mt-0 text-gray-800 hover:text-black mr-4"
